@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container" style="padding: 60px 15px 0;">
+    <form class="row g-3" asp-controller="Home" asp-action="Index" method="post">
+        <h1>Conversor de Distância</h1>
+        <div class="mb-3 row">
+            <select class="form-select" aria-label="Default select example" id="selectTemp" name="selectTemp">
+                <option selected value="1">Grama => Quilo</option>
+                <option value="2">Quilo => Grama</option>
+            </select>
+        </div>
+        <div class="mb-3 row">
+            <label for="valorRef" class="form-label">Valor:</label>
+            <input type="number" class="form-control" id="valorRef" name="valorRef">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary mb-3">Converter</button>
+        </div>
+    </form>
+    @if (ViewData["unidade"] is not null)
+    {
+        <h3>Valor Convertido</h3>
+        <span>O valor convertido pra @ViewData["unidade"] é igual a @ViewData["valor"]</span>
+    }
+</div>
